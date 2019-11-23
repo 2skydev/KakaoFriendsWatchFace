@@ -82,8 +82,11 @@
    */
   function updateTime() {
     var datetime = tizen.time.getCurrentDateTime()
+    var hours = datetime.getHours()
 
-    document.getElementById("hours").innerHTML = datetime.getHours().zeroPad()
+    if (hours > 12) hours -= 12
+
+    document.getElementById("hours").innerHTML = hours.zeroPad()
     document.getElementById("minutes").innerHTML = datetime.getMinutes().zeroPad()
   }
 
